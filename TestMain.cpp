@@ -275,31 +275,31 @@ int main(){
     // std::cin>>a>>b;
     // fm::init();
     // exit(0);
-    #define totst sin
+    #define totst atan2
     // float x = fm::log(10.0f);
     
     // unary
-    #define float double
-    my_rd_real_eng<float> myeg(-20,20);
-    test_framework_unary<float> tp(myeg,20,MAX_DATA_N-5);
-    tp.add_func([](float x)->float{return fm::totst(x,fm::ESpeedStd);});
-    tp.add_func([](float x)->float{return fm::totst(x,fm::ESpeedNormal);});    
-    // tp.add_func([](float x)->float{return fm::totst(x,fm::ESpeedFast3);});    
-    tp.set_err_standard([](float x)->float{return std::totst(x);});
-    tp.runtest(1);
+    // #define float double
+    // my_rd_real_eng<float> myeg(-20,20);
+    // test_framework_unary<float> tp(myeg,20,MAX_DATA_N-5);
+    // tp.add_func([](float x)->float{return fm::totst(x,fm::ESpeedStd);});
+    // tp.add_func([](float x)->float{return fm::totst(x,fm::ESpeedNormal);});    
+    // // tp.add_func([](float x)->float{return fm::totst(x,fm::ESpeedFast3);});    
+    // tp.set_err_standard([](float x)->float{return std::totst(x);});
+    // tp.runtest(1);
 
     // printf("%.6lf %.6lf %.6lf %.6lf\n",
         // fm::atan2(1,0),fm::atan2(-1,0),fm::atan2(0,1),fm::atan2(0,-1));
 
     // binary
     // #define float double
-    // my_rd_real_eng<float> myeg1(-10,10),myeg2(-10,10);
-    // test_framework_binary<float> tp2(myeg1,myeg2,20,MAX_DATA_N_B-5);
-    // tp2.add_func([](float x,float y)->float{return fm::totst(x,y,fm::ESpeedStd);});
-    // tp2.add_func([](float x,float y)->float{return fm::totst(x,y,fm::ESpeedNormal);});  
-    // tp2.add_func([](float x,float y)->float{return fm::totst(x,y,fm::ESpeedFast3);});      
-    // tp2.set_err_standard([](float x,float y)->float{return std::totst(x,y);});
-    // tp2.runtest(1);
+    my_rd_real_eng<float> myeg1(-10,10),myeg2(-10,10);
+    test_framework_binary<float> tp2(myeg1,myeg2,20,MAX_DATA_N_B-5);
+    tp2.add_func([](float x,float y)->float{return fm::totst(x,y,fm::ESpeedStd);});
+    tp2.add_func([](float x,float y)->float{return fm::totst(x,y,fm::ESpeedNormal);});  
+    tp2.add_func([](float x,float y)->float{return fm::totst(x,y,fm::ESpeedFast3);});      
+    tp2.set_err_standard([](float x,float y)->float{return std::totst(x,y);});
+    tp2.runtest(1);
 
     // printf("%.10lf\n",noinlinewp(a)+noinlinewp2(b));
 }

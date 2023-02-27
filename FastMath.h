@@ -424,10 +424,11 @@ namespace fm{
             return std::atan2(y,x);
         }
         else{ // EspeedFast2 EspeedFast3
-            float a = std::min (abs(x), abs(y)) / std::max (abs(x), abs(y));
+            float ax = abs(x), ay = abs(y);
+            float a = ((ax > ay) ? ay : ax) / ((ax > ay) ? ax : ay);
             float s = a * a;
             float r = ((-0.0464964749f * s + 0.15931422f) * s - 0.327622764f) * s * a + a;
-            if (abs(y) > abs(x)) r = hpi_f - r;
+            if (ay > ax) r = hpi_f - r;
             if (x < 0) r = pi_f - r;
             if (y < 0) r = -r;
             return r;
@@ -467,9 +468,6 @@ namespace fm{
         return std::pow(x,y);
     }
 
-    // 废弃，因为max,min是algrothm中而非cmath中的内容，也没法优化。
-    // using std::max; 
-    // using std::min;
 
 
 
