@@ -464,7 +464,7 @@ namespace fm{
 
     //经过测试，能够找到的快于标准库的实现精度太差（这些实现可见于DiscardedImpl.h）
     template <typename T>
-    inline T pow(float x,float y,const speed_option speed=FM_SPEED_DEFAULT){
+    inline T pow(T x,T y,const speed_option speed=FM_SPEED_DEFAULT){
         return std::pow(x,y);
     }
 
